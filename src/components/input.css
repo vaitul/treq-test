@@ -1,0 +1,14 @@
+.inputBox {
+  border-radius: 20px;
+  border: 2px solid #3c244b;
+  background: #f4f5fa;
+}
+
+.inputLabel {
+  color: rgba(29, 50, 74, 0.81);
+  font-family: Urbanist;
+  font-size: 18.986px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
