@@ -1,0 +1,238 @@
+[
+    {
+        "id": 1,
+        "name": "South East Asia",
+        "countries": [
+            {
+                "id": 12,
+                "name": "Singapore",
+                "marketplaces": [
+                    {
+                        "id": 25,
+                        "name": "Amazon"
+                    },
+                    {
+                        "id": 100,
+                        "name": "Bestbuy"
+                    },
+                    {
+                        "id": 99,
+                        "name": "Costco"
+                    },
+                    {
+                        "id": 98,
+                        "name": "Flipcart"
+                    }
+                ]
+            },
+            {
+                "id": 13,
+                "name": "Thailand",
+                "marketplaces": [
+                    {
+                        "id": 26,
+                        "name": "Amazon"
+                    },
+                    {
+                        "id": 97,
+                        "name": "Bestbuy"
+                    },
+                    {
+                        "id": 96,
+                        "name": "Costco"
+                    },
+                    {
+                        "id": 95,
+                        "name": "Flipcart"
+                    }
+                ]
+            },
+            {
+                "id": 14,
+                "name": "Malaysia",
+                "marketplaces": [
+                    {
+                        "id": 27,
+                        "name": "Amazon"
+                    },
+                    {
+                        "id": 94,
+                        "name": "Bestbuy"
+                    },
+                    {
+                        "id": 93,
+                        "name": "Costco"
+                    },
+                    {
+                        "id": 93,
+                        "name": "Flipcart"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Europe",
+        "countries": [
+            {
+                "id": 4,
+                "name": "France",
+                "marketplaces": [
+                    {
+                        "id": 16,
+                        "name": "Amazon"
+                    },
+                    {
+                        "id": 92,
+                        "name": "Bestbuy"
+                    },
+                    {
+                        "id": 91,
+                        "name": "Costco"
+                    },
+                    {
+                        "id": 90,
+                        "name": "Flipcart"
+                    }
+                ]
+            },
+            {
+                "id": 5,
+                "name": "Italy",
+                "marketplaces": [
+                    {
+                        "id": 17,
+                        "name": "Amazon"
+                    }
+                ]
+            },
+            {
+                "id": 6,
+                "name": "Germany",
+                "marketplaces": [
+                    {
+                        "id": 18,
+                        "name": "Amazon"
+                    },
+                    {
+                        "id": 19,
+                        "name": "EBay"
+                    }
+                ]
+            },
+            {
+                "id": 7,
+                "name": "Spain",
+                "marketplaces": [
+                    {
+                        "id": 20,
+                        "name": "Amazon"
+                    }
+                ]
+            },
+            {
+                "id": 8,
+                "name": "UK",
+                "marketplaces": [
+                    {
+                        "id": 21,
+                        "name": "Amazon"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "name": "North America",
+        "countries": [
+            {
+                "id": 1,
+                "name": "USA",
+                "marketplaces": [
+                    {
+                        "id": 8,
+                        "name": "Amazon"
+                    },
+                    {
+                        "id": 9,
+                        "name": "EBay"
+                    },
+                    {
+                        "id": 10,
+                        "name": "Bestbuy"
+                    },
+                    {
+                        "id": 11,
+                        "name": "Costco"
+                    },
+                    {
+                        "id": 12,
+                        "name": "Flipcart"
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "name": "Canada",
+                "marketplaces": [
+                    {
+                        "id": 13,
+                        "name": "EBay"
+                    },
+                    {
+                        "id": 14,
+                        "name": "Amazon"
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "name": "Mexico",
+                "marketplaces": [
+                    {
+                        "id": 15,
+                        "name": "Amazon"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "GCC",
+        "countries": [
+            {
+                "id": 9,
+                "name": "Saudi Arabia",
+                "marketplaces": [
+                    {
+                        "id": 22,
+                        "name": "Amazon"
+                    }
+                ]
+            },
+            {
+                "id": 10,
+                "name": "Oman",
+                "marketplaces": [
+                    {
+                        "id": 23,
+                        "name": "Amazon"
+                    }
+                ]
+            },
+            {
+                "id": 11,
+                "name": "UAE",
+                "marketplaces": [
+                    {
+                        "id": 24,
+                        "name": "Amazon"
+                    }
+                ]
+            }
+        ]
+    }
+]
