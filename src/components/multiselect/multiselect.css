@@ -1,0 +1,47 @@
+.drp-container-wrapper .label {
+  color: rgba(29, 50, 74, 0.81);
+  font-family: Urbanist;
+  font-size: 18.986px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.drp-container {
+  border-radius: 20px;
+  border: 3px solid #fff;
+  background: #f4f5fa;
+}
+
+.drp-container .selectedItemsContainer .selectedItem {
+  background-color: #3c244b;
+
+  line-height: normal;
+}
+
+.drp-container .counter {
+  background: #90769f;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.drp-container .crossIcon {
+  width: 10px;
+  height: 10px;
+  min-height: 10px;
+  min-width: 10px;
+}
+.drp-container .downIcon {
+  stroke-width: 100px;
+}
+
+.dropDownContainer {
+  width: 98%;
+  background-color: #f4f5fa;
+}
+
+.dropDownContainer .dropDownItems:hover {
+  background-color: #3c244b;
+}
