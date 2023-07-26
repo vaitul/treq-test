@@ -1,0 +1,15 @@
+.multiSelectHead .downIcon {
+  width: 10px;
+  min-width: 10px;
+  height: 10px;
+  min-height: 10px;
+}
+
+.multiSelectHead .item {
+  color: #636464;
+  font-family: Urbanist;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
