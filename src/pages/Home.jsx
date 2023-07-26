@@ -12,11 +12,11 @@ const Home = () => {
     <div className="homepage px-[73px] py-[47px]">
       <div className="">
         <div className="sectionLabel">Brand Info</div>
-        <div className="flex mt-9">
-          <div className="w-1/2">
+        <div className="flex flex-col md:flex-row mt-9">
+          <div className="md:w-1/2 w-full">
             <Input label="Brand Name" placeholder="Enter brand name" />
           </div>
-          <div className="w-1/2 ml-[76px]">
+          <div className="md:w-1/2 w-full md:mt-0 mt-6 md:ml-[76px] ml-0">
             <MultiSelect label="Category" />
           </div>
         </div>
