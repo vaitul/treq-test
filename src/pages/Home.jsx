@@ -61,6 +61,8 @@ const Home = () => {
           <RegionSelector label="Select Regions:" />
         </div>
       </div>
+
+      <button className="nextBtn float-right primary-bg text-white mt-7 w-64 py-4 rounded-full">Next</button>
     </div>
   );
 };

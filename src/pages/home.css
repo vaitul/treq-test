@@ -6,3 +6,13 @@
   font-weight: 500;
   line-height: normal;
 }
+
+.homepage .nextBtn {
+  color: #fff;
+  text-align: center;
+  font-family: Urbanist;
+  font-size: 23.198px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
