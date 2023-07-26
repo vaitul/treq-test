@@ -28,27 +28,35 @@ const MultiSelect = ({ options, selectedItems = [], onChange, ...props }) => {
 
   const selectedItemsContainerRef = useRef();
 
+  // Checking how many preselected items to show by calculating box and window width
   const [selectedOptionsShowingLimit, setSelectedOptionsShowingLimit] =
     useState(options.length);
   useLayoutEffect(() => {
-    let finalLimit = 0;
-    if (selectedItemsContainerRef.current) {
-      const elm = selectedItemsContainerRef.current;
-      const items = elm.getElementsByClassName("selectedItem");
-      let remainedWidth = elm.clientWidth - 100;
-      if (items.length && remainedWidth) {
-        for (let item of items) {
-          if (item.clientWidth < remainedWidth) {
-            finalLimit++;
-            remainedWidth = remainedWidth - item.clientWidth;
-          } else {
-            break;
+    setSelectedOptionsShowingLimit(selectedItems.length);
+    function calculate() {
+      let finalLimit = 0;
+      if (selectedItemsContainerRef.current) {
+        const elm = selectedItemsContainerRef.current;
+        const items = elm.getElementsByClassName("selectedItem");
+        let remainedWidth = elm.clientWidth - 100;
+        if (items.length && remainedWidth) {
+          for (let item of items) {
+            if (item.clientWidth < remainedWidth) {
+              finalLimit++;
+              remainedWidth = remainedWidth - item.clientWidth;
+            } else {
+              break;
+            }
           }
         }
       }
+      return finalLimit;
     }
-    setSelectedOptionsShowingLimit(finalLimit || options.length);
-  }, []);
+    setTimeout(
+      () => setSelectedOptionsShowingLimit(calculate() || options.length),
+      0
+    );
+  }, [options.length, selectedItems]);
 
   const onDropDownClick = () => {
     setIsDropDownOpen((prev) => !prev);
@@ -107,7 +115,7 @@ const MultiSelect = ({ options, selectedItems = [], onChange, ...props }) => {
               className={`downIcon ${isDropDownOpen ? "rotate-180" : ""}`}
               src={downIcon}
             />
-          </button
+          </button>
         </div>
         {isDropDownOpen && (
           <div className="dropDownContainer z-50 border py-3 left-0 right-0 rounded-lg mt-5 m-auto shadow-xl absolute">
