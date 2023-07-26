@@ -30,9 +30,9 @@ const MultiSelect = ({ options, selectedItems = [], onChange, ...props }) => {
 
   // Checking how many preselected items to show by calculating box and window width
   const [selectedOptionsShowingLimit, setSelectedOptionsShowingLimit] =
-    useState(options.length);
+    useState(options?.length);
   useLayoutEffect(() => {
-    setSelectedOptionsShowingLimit(selectedItems.length);
+    setSelectedOptionsShowingLimit(selectedItems?.length);
     function calculate() {
       let finalLimit = 0;
       if (selectedItemsContainerRef.current) {
@@ -53,17 +53,17 @@ const MultiSelect = ({ options, selectedItems = [], onChange, ...props }) => {
       return finalLimit;
     }
     setTimeout(
-      () => setSelectedOptionsShowingLimit(calculate() || options.length),
+      () => setSelectedOptionsShowingLimit(calculate() || options?.length),
       0
     );
-  }, [options.length, selectedItems]);
+  }, [options?.length, selectedItems]);
 
   const onDropDownClick = () => {
     setIsDropDownOpen((prev) => !prev);
   };
 
   const onSelectedItemClick = (event, value) => {
-    onChange && onChange(selectedItems.filter((x) => x !== value));
+    onChange && onChange(selectedItems?.filter((x) => x !== value));
     event.stopPropagation();
   };
 
@@ -72,10 +72,10 @@ const MultiSelect = ({ options, selectedItems = [], onChange, ...props }) => {
   };
 
   const showHiddenItemsCounter =
-    selectedItems.length > selectedOptionsShowingLimit;
+    selectedItems?.length > selectedOptionsShowingLimit;
 
   return (
-    <div className="drp-container-wrapper">
+    <div className={`drp-container-wrapper ${props.className ?? ""}`}>
       {props.label && <label className="label mb-4 block">{props.label}</label>}
       <div
         className="drp-container relative p-4"
@@ -86,7 +86,7 @@ const MultiSelect = ({ options, selectedItems = [], onChange, ...props }) => {
           ref={selectedItemsContainerRef}
           className="selectedItemsContainer flex"
         >
-          {selectedItems.length > 0 ? (
+          {selectedItems?.length > 0 ? (
             selectedItems?.slice(0, selectedOptionsShowingLimit)?.map((i) => (
               <div
                 onClick={(e) => onSelectedItemClick(e, i)}
@@ -106,7 +106,7 @@ const MultiSelect = ({ options, selectedItems = [], onChange, ...props }) => {
             <>
               <span className="self-end font-bold">...</span>
               <span className="rounded-lg counter ml-auto text-white self-center">
-                {selectedItems.length - selectedOptionsShowingLimit}
+                {selectedItems?.length - selectedOptionsShowingLimit}
               </span>
             </>
           ) : null}
@@ -119,11 +119,11 @@ const MultiSelect = ({ options, selectedItems = [], onChange, ...props }) => {
         </div>
         {isDropDownOpen && (
           <div className="dropDownContainer z-50 border py-3 left-0 right-0 rounded-lg mt-5 m-auto shadow-xl absolute">
-            {selectedItems.length === options.length ? (
+            {selectedItems?.length === options?.length ? (
               <div className="pl-2 text-stone-400">No options available</div>
             ) : (
               options?.map((opt) =>
-                selectedItems.includes(opt.value) ? null : (
+                selectedItems?.includes(opt.value) ? null : (
                   <div
                     onClick={() => onDropDownItemClicked(opt.value)}
                     key={opt.value}

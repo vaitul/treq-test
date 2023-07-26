@@ -11,7 +11,7 @@ const Input = (props) => {
   if (!props?.label) return input;
 
   return (
-    <label className="inputBox-label w-full flex flex-col">
+    <label className="label w-full flex flex-col">
       {props?.label}
       {input}
     </label>

@@ -5,3 +5,12 @@
 .primary-bg {
   background-color: var(--primary);
 }
+
+.label {
+  color: rgba(74, 75, 75, 0.65);
+  font-family: Urbanist;
+  font-size: 17.5px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}

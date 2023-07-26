@@ -17,11 +17,10 @@ const MultiSelectorHead = ({
         return (
           <div
             className="py-0 pl-10 first:pl-0 item flex items-center"
-            key={item.label}
-            id={item.label}
+            key={item.value}
             onClick={() => onItemClicked(item)}
           >
-            <CheckBocIcon ticked={item.isChecked} className="mr-2" />
+            <CheckBocIcon ticked={!!item.isChecked} className="mr-2" />
             <span className="whitespace-nowrap">{item.name}</span>
             <img
               className={`downIcon ml-2 ${isDropDownOpen ? "rotate-180" : ""}`}

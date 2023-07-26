@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import MultiSelectorHead from "../multiSelectPanels/MultiSelectorHead";
-import MultiSelectorLeafPanels from "../multiSelectPanels/MultiSelectorLeafPanels";
 import data from "./regions.json";
 import "./regionSelector.css";
 import CheckBocIcon from "../checkboxIcon";
 
-const RegionSelector = () => {
+const RegionSelector = ({ label }) => {
   const [regionHeadDropDown, setRegionHeadDropDown] = useState(data?.[0]?.id);
   const [countryDropDown, setCountryDropDown] = useState(
     data?.[0]?.countries?.[0]?.id
@@ -39,77 +38,81 @@ const RegionSelector = () => {
   };
 
   return (
-    <div className="regionSelectorContainer">
-      <MultiSelectorHead
-        className="justify-between"
-        onItemClicked={(item) => {
-          setRegionHeadDropDown(item.value);
-          setCountryDropDown(
-            data.find((x) => x.id === item.value)?.countries?.[0]
-          );
-        }}
-        items={data.map((x) => ({
-          value: x.id,
-          name: x.name,
-          isChecked: !!x.countries.find(
-            (y) => values?.[x.id]?.[y.id]?.length > 0
-          ),
-        }))}
-        activeDropDownValue={regionHeadDropDown}
-      />
-      {regionHeadDropDown && (
+    <div className="w-full">
+      {label && <label className="label mb-4 block">{label}</label>}
+
+      <div className="regionSelectorContainer">
         <MultiSelectorHead
-          className="countrySelector p-4"
-          onItemClicked={(item) => setCountryDropDown(item.value)}
-          items={
-            data
-              .find((x) => x.id === regionHeadDropDown)
-              ?.countries?.map?.((c) => ({
-                value: c.id,
-                name: c.name,
-                isChecked: !!c.marketplaces.find((y) =>
-                  values?.[regionHeadDropDown]?.[c.id]?.includes(y.id)
-                ),
-              })) || []
-          }
-          activeDropDownValue={countryDropDown}
+          className="justify-between"
+          onItemClicked={(item) => {
+            setRegionHeadDropDown(item.value);
+            setCountryDropDown(
+              data.find((x) => x.id === item.value)?.countries?.[0]
+            );
+          }}
+          items={data.map((x) => ({
+            value: x.id,
+            name: x.name,
+            isChecked: !!x.countries.find(
+              (y) => values?.[x.id]?.[y.id]?.length > 0
+            ),
+          }))}
+          activeDropDownValue={regionHeadDropDown}
         />
-      )}
-      {console.log(
-        data
-          .find((x) => x.id === regionHeadDropDown)
-          ?.countries?.find((x) => x.id === countryDropDown)?.marketplaces
-      )}
-      {regionHeadDropDown && countryDropDown && (
-        <div className="marketplaceContainer w-full gap-2 grid p-5">
-          {data
+        {regionHeadDropDown && (
+          <MultiSelectorHead
+            className="countrySelector p-4"
+            onItemClicked={(item) => setCountryDropDown(item.value)}
+            items={
+              data
+                .find((x) => x.id === regionHeadDropDown)
+                ?.countries?.map?.((c) => ({
+                  value: c.id,
+                  name: c.name,
+                  isChecked: !!c.marketplaces.find((y) =>
+                    values?.[regionHeadDropDown]?.[c.id]?.includes(y.id)
+                  ),
+                })) || []
+            }
+            activeDropDownValue={countryDropDown}
+          />
+        )}
+        {console.log(
+          data
             .find((x) => x.id === regionHeadDropDown)
-            ?.countries?.find((x) => x.id === countryDropDown)
-            ?.marketplaces?.map((item) => (
-              <div
-                onClick={() =>
-                  onMarketPlaceClicked(
-                    regionHeadDropDown,
-                    countryDropDown,
-                    item
-                  )
-                }
-                key={item.id + item.name}
-                className="flex items-center"
-              >
-                <CheckBocIcon
-                  className="mr-3"
-                  ticked={
-                    !!values?.[regionHeadDropDown]?.[countryDropDown]?.includes(
-                      item.id
+            ?.countries?.find((x) => x.id === countryDropDown)?.marketplaces
+        )}
+        {regionHeadDropDown && countryDropDown && (
+          <div className="marketplaceContainer w-full gap-2 grid p-5">
+            {data
+              .find((x) => x.id === regionHeadDropDown)
+              ?.countries?.find((x) => x.id === countryDropDown)
+              ?.marketplaces?.map((item) => (
+                <div
+                  onClick={() =>
+                    onMarketPlaceClicked(
+                      regionHeadDropDown,
+                      countryDropDown,
+                      item
                     )
                   }
-                />
-                {item.name}
-              </div>
-            ))}
-        </div>
-      )}
+                  key={item.id + item.name}
+                  className="flex items-center"
+                >
+                  <CheckBocIcon
+                    className="mr-3"
+                    ticked={
+                      !!values?.[regionHeadDropDown]?.[
+                        countryDropDown
+                      ]?.includes(item.id)
+                    }
+                  />
+                  {item.name}
+                </div>
+              ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 };

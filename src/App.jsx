@@ -1,11 +1,14 @@
+import { useState } from "react";
 import "./App.css";
-import MultiSelect from "./components/MultiSelect";
-import Regions from "./components/Regions";
+import RegionSelector from "./components/regionSelector";
+import Home from "./pages/Home";
 
 function App() {
+  const [value, setValue] = useState(["two", "three", "four"]);
+
   return (
     <>
-      <Regions />
+      <Home />
     </>
   );
 }
