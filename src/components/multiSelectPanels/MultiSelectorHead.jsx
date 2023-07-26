@@ -1,4 +1,3 @@
-import React from "react";
 import downIcon from "../../assets/down.svg";
 import "./multiSelectHead.css";
 import CheckBocIcon from "../checkboxIcon";
