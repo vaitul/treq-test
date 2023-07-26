@@ -1,14 +1,12 @@
 import React, {
-  useEffect,
   useLayoutEffect,
   useMemo,
   useRef,
   useState,
 } from "react";
-import "./multiSelect.css";
-import axios from "axios";
 import crossIcon from "../../assets/cross.svg";
 import downIcon from "../../assets/down.svg";
+import "./multiselect.css";
 
 const MultiSelect = ({ options, selectedItems = [], onChange, ...props }) => {
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
