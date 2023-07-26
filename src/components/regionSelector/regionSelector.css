@@ -1,0 +1,11 @@
+.regionSelectorContainer .countrySelector {
+  border-radius: 17px;
+  background: #f4f5fa;
+}
+
+.regionSelectorContainer .marketplaceContainer {
+  border-radius: 13px;
+  background: #e9ebf6;
+  margin-top: 3px;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
