@@ -1,16 +1,46 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import MultiSelectorHead from "../multiSelectPanels/MultiSelectorHead";
 import data from "./regions.json";
 import "./regionSelector.css";
 import CheckBocIcon from "../checkboxIcon";
 
-const RegionSelector = ({ label }) => {
-  const [regionHeadDropDown, setRegionHeadDropDown] = useState(data?.[0]?.id);
-  const [countryDropDown, setCountryDropDown] = useState(
-    data?.[0]?.countries?.[0]?.id
-  );
+const RegionSelector = ({ label, onChange }) => {
+  const [regionHeadDropDown, setRegionHeadDropDown] = useState();
+  const [countryDropDown, setCountryDropDown] = useState();
 
   const [values, setValues] = useState({});
+
+  useEffect(() => {
+    onChange &&
+      Object.keys(values).length > 0 &&
+      onChange(
+        data
+          .map((region) => {
+            if (!values[region.id]) {
+              return undefined;
+            }
+
+            return {
+              ...region,
+              countries: region.countries
+                .map((country) => {
+                  if (!values[region.id][country.id]) {
+                    return undefined;
+                  }
+
+                  return {
+                    ...country,
+                    marketplaces: country.marketplaces.filter((x) =>
+                      values[region.id][country.id].includes(x.id)
+                    ),
+                  };
+                })
+                .filter(Boolean),
+            };
+          })
+          .filter(Boolean)
+      );
+  }, [values, onChange]);
 
   const onMarketPlaceClicked = (regionId, countryId, item) => {
     if (values?.[regionHeadDropDown]?.[countryDropDown]?.includes(item.id)) {
@@ -46,9 +76,7 @@ const RegionSelector = ({ label }) => {
           className="justify-between"
           onItemClicked={(item) => {
             setRegionHeadDropDown(item.value);
-            setCountryDropDown(
-              data.find((x) => x.id === item.value)?.countries?.[0]
-            );
+            setCountryDropDown(undefined);
           }}
           items={data.map((x) => ({
             value: x.id,
@@ -77,12 +105,8 @@ const RegionSelector = ({ label }) => {
             activeDropDownValue={countryDropDown}
           />
         )}
-        {console.log(
-          data
-            .find((x) => x.id === regionHeadDropDown)
-            ?.countries?.find((x) => x.id === countryDropDown)?.marketplaces
-        )}
-        {regionHeadDropDown && countryDropDown && (
+        {console.log({ regionHeadDropDown, countryDropDown })}
+        {!!regionHeadDropDown && !!countryDropDown && (
           <div className="marketplaceContainer w-full gap-2 grid p-5">
             {data
               .find((x) => x.id === regionHeadDropDown)

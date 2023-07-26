@@ -118,7 +118,10 @@ const MultiSelect = ({ options, selectedItems = [], onChange, ...props }) => {
           </button>
         </div>
         {isDropDownOpen && (
-          <div className="dropDownContainer z-50 border py-3 left-0 right-0 rounded-lg mt-5 m-auto shadow-xl absolute">
+          <div
+            onMouseLeave={() => setTimeout(() => setIsDropDownOpen(false), 300)}
+            className="dropDownContainer z-50 border py-3 left-0 right-0 rounded-lg mt-5 m-auto shadow-xl absolute"
+          >
             {selectedItems?.length === options?.length ? (
               <div className="pl-2 text-stone-400">No options available</div>
             ) : (
